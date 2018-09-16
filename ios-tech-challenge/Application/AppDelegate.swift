@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreData
+import GoogleMaps
+import GooglePlaces
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController = UINavigationController(rootViewController: DeliveriesListViewController())
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
+        GMSPlacesClient.provideAPIKey(kGoogleMapsKey)
+        GMSServices.provideAPIKey(kGoogleMapsKey)
         return true
     }
 

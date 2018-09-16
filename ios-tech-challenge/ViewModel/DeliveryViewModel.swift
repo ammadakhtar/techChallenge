@@ -15,7 +15,7 @@ class ViewModel: NSObject {
     // Can't init is singleton
     private override init() { }
     
-    // MARK:- Shared Instance
+    // MARK: - Shared Instance
     
     static let shared = ViewModel()
     
@@ -24,25 +24,48 @@ class ViewModel: NSObject {
     var deliveryItems: [DeliveryItem] = []
     var deliveryItem: [Delivery] = []
     var imageCache = NSCache<AnyObject, AnyObject>()
-    
+    var offSet = 0
+    var lastFetchedCount = 0
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     //MARK: - API Call Method
     
-    func getDeliveryItems(offset: Int, completion: @escaping () -> Void) {
+    func getDeliveryItems(completion: @escaping () -> Void) {
         
         if !Reachability.isConnectedToNetwork() {
             
+            CoreDataService.shared.getDeliveriesFromDB(offSet: offSet, fetchLimit: kLimit) { (completed, deliveriesReturned) in
+                lastFetchedCount = deliveriesReturned.count
+                
+                if offSet == 0 {
+                    self.deliveryItem = []
+                }
+                
+                for everyDelivery in deliveriesReturned {
+                    let delivery = DeliveryItem(delivery: everyDelivery)
+                    self.deliveryItems.append(delivery)
+                }
+                
+                if deliveriesReturned.count == 10 {
+                    offSet += kLimit
+                }
+                
+                // Putting completion on main thread
+                DispatchQueue.main.async {
+                    completion()
+                }
+            }
+            
         } else {
             
-            APIClient.shared.fetchDeliveryItemList(offset: offset) { (deliveryItemsReturned) in
+            APIClient.shared.fetchDeliveryItemList() { (deliveryItemsReturned) in
                 
                 /*
                  - Putting this block on main queue because our completion handler is where the data will display and we don't want to block any UI code.
                  */
                 
                 DispatchQueue.main.async { [weak self] in
-                    self?.deliveryItems = deliveryItemsReturned!
+                    self?.deliveryItems = deliveryItemsReturned
                     completion()
                 }
             }

@@ -18,7 +18,8 @@ class DeliveryTableViewCell: UITableViewCell {
     let deliveryImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor.white.withAlphaComponent(1.0)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     

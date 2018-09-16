@@ -20,6 +20,8 @@
 		814E586B214E3CCD00D93A22 /* Delivery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E586A214E3CCD00D93A22 /* Delivery.swift */; };
 		814E586D214E494500D93A22 /* DeliveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E586C214E494500D93A22 /* DeliveryViewModel.swift */; };
 		814E5870214E529700D93A22 /* DeliveryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E586F214E529700D93A22 /* DeliveryTableViewCell.swift */; };
+		81A8A45C214EDED2007DBE44 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8A45B214EDED2007DBE44 /* CoreDataService.swift */; };
+		81A8A460214EF455007DBE44 /* DeliveryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8A45F214EF455007DBE44 /* DeliveryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		814E586A214E3CCD00D93A22 /* Delivery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delivery.swift; sourceTree = "<group>"; };
 		814E586C214E494500D93A22 /* DeliveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewModel.swift; sourceTree = "<group>"; };
 		814E586F214E529700D93A22 /* DeliveryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTableViewCell.swift; sourceTree = "<group>"; };
+		81A8A45B214EDED2007DBE44 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		81A8A45F214EF455007DBE44 /* DeliveryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryDetailViewController.swift; sourceTree = "<group>"; };
 		BEFB8AF949B521ADDCCD6090 /* Pods-ios-tech-challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-tech-challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-tech-challenge/Pods-ios-tech-challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		EE9FB2278280C4FEDAB2503F /* Pods-ios-tech-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-tech-challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-tech-challenge/Pods-ios-tech-challenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				814E5856214E319300D93A22 /* Reachability.swift */,
+				81A8A45B214EDED2007DBE44 /* CoreDataService.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 			children = (
 				814E586E214E524D00D93A22 /* Cell */,
 				814E5858214E322500D93A22 /* DeliveriesListViewController.swift */,
+				81A8A45F214EF455007DBE44 /* DeliveryDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -238,6 +244,7 @@
 				814E582A214E2CF700D93A22 /* Frameworks */,
 				814E582B214E2CF700D93A22 /* Resources */,
 				2C66C24BDE20632A6DB5C876 /* [CP] Embed Pods Frameworks */,
+				D924D532EEC9623FBC1BD1FD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -360,6 +367,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D924D532EEC9623FBC1BD1FD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ios-tech-challenge/Pods-ios-tech-challenge-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios-tech-challenge/Pods-ios-tech-challenge-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -368,7 +395,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				814E5855214E2FC500D93A22 /* Constants.swift in Sources */,
+				81A8A460214EF455007DBE44 /* DeliveryDetailViewController.swift in Sources */,
 				814E5831214E2CF700D93A22 /* AppDelegate.swift in Sources */,
+				81A8A45C214EDED2007DBE44 /* CoreDataService.swift in Sources */,
 				814E586D214E494500D93A22 /* DeliveryViewModel.swift in Sources */,
 				814E5859214E322500D93A22 /* DeliveriesListViewController.swift in Sources */,
 				814E5839214E2CF800D93A22 /* ios_tech_challenge.xcdatamodeld in Sources */,

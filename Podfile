@@ -5,6 +5,8 @@ target 'ios-tech-challenge' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
     pod 'PureLayout'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
   # Pods for ios-tech-challenge
 
 end

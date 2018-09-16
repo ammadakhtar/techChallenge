@@ -14,7 +14,6 @@ class DeliveriesListViewController: UIViewController {
     // MARK: - UI Elements & variables
     
     var didSetConstraints = false
-    var isFirstLoad = true
     
     let deliveryListTableView: UITableView = {
         let tableView = UITableView()
@@ -43,8 +42,7 @@ class DeliveriesListViewController: UIViewController {
         super.viewDidLoad()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        ViewModel.shared.getDeliveryItems(offset: 0) {
-            self.isFirstLoad = false
+        ViewModel.shared.getDeliveryItems() {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.deliveryListTableView.reloadData()
         }
@@ -62,8 +60,21 @@ class DeliveriesListViewController: UIViewController {
             deliveryListTableView.autoPinEdge(toSuperviewEdge: .left)
             didSetConstraints = true
         }
-        
         super.updateViewConstraints()
+    }
+    
+    // MARK: - UIScrollView Delegate
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        if (Int(deliveryListTableView.contentOffset.y + deliveryListTableView.frame.size.height) >= Int(deliveryListTableView.contentSize.height)) {
+            
+            if ViewModel.shared.deliveryItems.count >= kLimit && ViewModel.shared.lastFetchedCount >= kLimit {
+                ViewModel.shared.getDeliveryItems {
+                    self.deliveryListTableView.reloadData()
+                }
+            }
+        }
     }
 }
 
@@ -73,10 +84,10 @@ extension DeliveriesListViewController: UITableViewDelegate, UITableViewDataSour
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        if isFirstLoad {
-            return 0
+        if ViewModel.shared.numberOfItemsToDisplay(in: 0) != 0 {
+            return 1
         }
-        return ViewModel.shared.numberOfItemsToDisplay(in: 0)
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -104,7 +115,8 @@ extension DeliveriesListViewController: UITableViewDelegate, UITableViewDataSour
     // MARK: - UITableViewDelegate Methods
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     print("tapped")
+        let deliveryDetailViewController = DeliveryDetailViewController(ViewModel.shared.deliveryItems[indexPath.row])
+        self.navigationController?.pushViewController(deliveryDetailViewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
