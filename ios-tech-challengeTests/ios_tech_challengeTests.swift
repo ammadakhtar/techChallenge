@@ -1,6 +1,6 @@
 //
-//  ios-tech-challengeTests.swift
-//  ios-tech-challenge
+//  ios_tech_challengeTests.swift
+//  ios-tech-challengeTests
 //
 //  Created by Ammad Akhtar on 16/09/2018.
 //  Copyright © 2018 Ammad Akhtar. All rights reserved.

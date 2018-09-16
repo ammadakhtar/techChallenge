@@ -9,3 +9,5 @@
 import Foundation
 
 let kBaseUrl = "http://192.168.10.8:8080/deliveries"
+let kLimit = 10
+let kDeliveryCellIdentifier = "DeliveryCellIdentifier"
