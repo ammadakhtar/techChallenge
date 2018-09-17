@@ -8,7 +8,7 @@
 
 import Foundation
 
-let kBaseUrl = "http://192.168.10.8:8080/deliveries"
+let kBaseUrl = "https://mock-api-mobile.dev.lalamove.com/deliveries"
 let kLimit = 10
 let kDeliveryCellIdentifier = "DeliveryCellIdentifier"
 let kGoogleMapsKey = "AIzaSyAdpnPdfwNlHT13qV-x6bhiE4fo5dT-tSU"

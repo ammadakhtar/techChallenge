@@ -6,24 +6,30 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (2.7.0):
     - GoogleMaps/Base (= 2.7.0)
+  - NVActivityIndicatorView (4.3.0):
+    - NVActivityIndicatorView/Presenter (= 4.3.0)
+  - NVActivityIndicatorView/Presenter (4.3.0)
   - PureLayout (3.0.2)
 
 DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
+  - NVActivityIndicatorView
   - PureLayout
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - GoogleMaps
     - GooglePlaces
+    - NVActivityIndicatorView
     - PureLayout
 
 SPEC CHECKSUMS:
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
+  NVActivityIndicatorView: 963f62bf9f993fcf23218e55958e5b1761b9504c
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
 
-PODFILE CHECKSUM: 8558c59874918d88a5988e00519855bccda83c9f
+PODFILE CHECKSUM: b69b47c0ea9a12522044a414b45afca4f4bdb94e
 
 COCOAPODS: 1.5.3

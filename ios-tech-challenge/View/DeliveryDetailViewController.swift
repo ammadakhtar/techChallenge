@@ -17,6 +17,7 @@ class DeliveryDetailViewController: UIViewController {
     
     let delivery:DeliveryItem?
     var mapView:GMSMapView?
+    var currentLocationMarker = GMSMarker()
     var didSetConstraints = false
     var imageCache = NSCache<AnyObject, AnyObject>()
     

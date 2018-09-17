@@ -22,6 +22,7 @@
 		814E5870214E529700D93A22 /* DeliveryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E586F214E529700D93A22 /* DeliveryTableViewCell.swift */; };
 		81A8A45C214EDED2007DBE44 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8A45B214EDED2007DBE44 /* CoreDataService.swift */; };
 		81A8A460214EF455007DBE44 /* DeliveryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8A45F214EF455007DBE44 /* DeliveryDetailViewController.swift */; };
+		81A9CBBA2150065F00F22EBA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A9CBB92150065F00F22EBA /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		814E586F214E529700D93A22 /* DeliveryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTableViewCell.swift; sourceTree = "<group>"; };
 		81A8A45B214EDED2007DBE44 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		81A8A45F214EF455007DBE44 /* DeliveryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryDetailViewController.swift; sourceTree = "<group>"; };
+		81A9CBB92150065F00F22EBA /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		BEFB8AF949B521ADDCCD6090 /* Pods-ios-tech-challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-tech-challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-tech-challenge/Pods-ios-tech-challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		EE9FB2278280C4FEDAB2503F /* Pods-ios-tech-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-tech-challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-tech-challenge/Pods-ios-tech-challenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,7 +110,6 @@
 				814E584B214E2E9900D93A22 /* Helper */,
 				814E584A214E2E8E00D93A22 /* Utilities */,
 				814E5849214E2E7C00D93A22 /* Assets */,
-				814E5848214E2E7400D93A22 /* Extensions */,
 				814E5847214E2E6D00D93A22 /* Constants */,
 				814E583C214E2CF900D93A22 /* LaunchScreen.storyboard */,
 				814E583F214E2CF900D93A22 /* Info.plist */,
@@ -125,13 +126,6 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		814E5848214E2E7400D93A22 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		814E5849214E2E7C00D93A22 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +137,7 @@
 		814E584A214E2E8E00D93A22 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				81A9CBB92150065F00F22EBA /* Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -338,10 +333,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ios-tech-challenge/Pods-ios-tech-challenge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +397,7 @@
 				81A8A45C214EDED2007DBE44 /* CoreDataService.swift in Sources */,
 				814E586D214E494500D93A22 /* DeliveryViewModel.swift in Sources */,
 				814E5859214E322500D93A22 /* DeliveriesListViewController.swift in Sources */,
+				81A9CBBA2150065F00F22EBA /* Utilities.swift in Sources */,
 				814E5839214E2CF800D93A22 /* ios_tech_challenge.xcdatamodeld in Sources */,
 				814E5870214E529700D93A22 /* DeliveryTableViewCell.swift in Sources */,
 				814E5857214E319300D93A22 /* Reachability.swift in Sources */,

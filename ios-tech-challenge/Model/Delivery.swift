@@ -65,6 +65,17 @@ struct DeliveryItem: Equatable {
         self.address = delivery.address!
     }
     
+    // MARK: - Init Method For Unit Testing
+    
+    init(id: Int, description: String, imageUrl: String, latitude: Double, longitude: Double, address: String) {
+        self.id = id
+        self.description = description
+        self.imageUrl = imageUrl
+        self.address = address
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+    
     // MARK: Equatable Protocol
     
     static func == (lhs: DeliveryItem, rhs: DeliveryItem) -> Bool {

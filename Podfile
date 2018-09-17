@@ -7,6 +7,7 @@ target 'ios-tech-challenge' do
     pod 'PureLayout'
     pod 'GoogleMaps'
     pod 'GooglePlaces'
+    pod 'NVActivityIndicatorView'
   # Pods for ios-tech-challenge
 
 end

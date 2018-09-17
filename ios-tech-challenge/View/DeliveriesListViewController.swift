@@ -41,9 +41,11 @@ class DeliveriesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        Utilities.showLoading(viewController: self)
         
         ViewModel.shared.getDeliveryItems() {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            Utilities.hideLoading(viewController: self)
             self.deliveryListTableView.reloadData()
         }
     }
@@ -70,7 +72,10 @@ class DeliveriesListViewController: UIViewController {
         if (Int(deliveryListTableView.contentOffset.y + deliveryListTableView.frame.size.height) >= Int(deliveryListTableView.contentSize.height)) {
             
             if ViewModel.shared.deliveryItems.count >= kLimit && ViewModel.shared.lastFetchedCount >= kLimit {
+                Utilities.showLoading(viewController: self)
+                
                 ViewModel.shared.getDeliveryItems {
+                    Utilities.hideLoading(viewController: self)
                     self.deliveryListTableView.reloadData()
                 }
             }
